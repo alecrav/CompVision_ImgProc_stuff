@@ -1,2 +1,3 @@
-# CompVision_ImgProc_stuff
-Computer Vision &amp; Image Processing Algorithms developed mostly during my studeis @ ETH
+# Computer Vision and Image Processing Algos
+Computer Vision and Image Processing algorithms developed mostly during my studies @ ETH.
+Relevant courses are Computer Vision & Image Based Mapping.
