@@ -6,7 +6,8 @@ pub(crate) struct Neuron {
 }
 
 fn main() {
-    // initialize inputs
+    // initialize random inputs
+    let mut _rng = rand::rng();
 
     // do stuff 
 
