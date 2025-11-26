@@ -1,13 +1,15 @@
 pub struct Neuron {
-    inputs: Vec<i32>,
+    pub inputs: Vec<i32>
 }
 
-pub trait computeNeuron {
+pub trait compute_neuron {
     fn returnOutput(&self) -> i32;
 }
 
-impl computeNeuron for Neuron {
+impl compute_neuron for Neuron {
     fn returnOutput(&self) -> i32 {
         // take vector and do the stuff has to be done
+        print!("compute stuff");
+        3
     }
 }

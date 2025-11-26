@@ -1,16 +1,14 @@
-use rand::prelude::*;
-use single_neuron::Neuron;
+mod neuron;
+use neuron::compute_neuron;
 
 fn main() {
-    let inputs: [u32; 3] = rand::random();
+    let inputs: Vec<i32> = (0..3).map(|v| v + 1000).collect();
 
     // initialize neuron
-    let neuron = Neuron {
-        inputs,
-        
+    let neuron = neuron::Neuron {
+        inputs
     };
     
     // call compute neuron
-
-    // other stuff
+    let res: i32 = neuron.returnOutput();
 }
