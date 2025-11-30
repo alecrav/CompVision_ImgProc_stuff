@@ -1,14 +1,20 @@
 mod neuron;
-use neuron::compute_neuron;
+use std::cell::Cell;
+
+use neuron::ComputeNeuron;
 
 fn main() {
-    let inputs: Vec<i32> = (0..3).map(|v| v + 1000).collect();
 
     // initialize neuron
     let neuron = neuron::Neuron {
-        inputs
+        weight: 0.1,
+        bias: 0.1
     };
-    
-    // call compute neuron
-    let res: i32 = neuron.returnOutput();
+
+    let input = 2.0;
+    let real_value = 5.0;
+
+    let output = neuron.train(input);
+
+    neuron.compute_loss(output, real_value);
 }
