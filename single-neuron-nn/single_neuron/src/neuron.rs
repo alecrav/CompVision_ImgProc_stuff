@@ -5,19 +5,20 @@ pub struct Neuron {
     pub bias: f32,
 }
 
-pub trait ComputeNeuron {
-    fn train(&self, input: f32) -> f32;
-    fn compute_loss(&self, output: f32, real_value: f32) -> f32;
-}
-
-impl ComputeNeuron for Neuron {
-    fn train(&self, input: f32) -> f32 {
+impl Neuron {
+    pub fn train(&self, input: f32) -> f32 {
         let output = (input * self.weight) + self.bias;
         output
     }
 
-    fn compute_loss(&self, output: f32, real_value: f32) -> f32 {
+    pub fn compute_loss(&self, output: f32, real_value: f32) -> f32 {
         let loss = real_value - output;
         loss
+    }
+
+    /// update weight and bias according to calculaed loss
+    pub fn backward_pass(&mut self, loss: f32, input: f32) {
+        self.weight = self.weight + (input * 0.01 * loss);
+        self.bias = self.bias + (0.01 * loss);
     }
 }
