@@ -15,26 +15,29 @@ fn train_epoch(neuron: &mut neuron::Neuron) -> f32 {
         output = neuron.train(input);
         loss = neuron.compute_loss(output, real_value);
 
-        &neuron.backward_pass(loss, input);
-        
+        neuron.backward_pass(loss, input); 
     }
+    
     loss
 }
 
-fn main () {
+fn main() {
     let mut neuron = neuron::Neuron {
         weight: 0.1,
         bias: 0.1
     };
     
-    for n in 0..20 {
+    for n in 0..40 {
         
         let loss = train_epoch(&mut neuron);
         println!("---------- EPOCH {} ----------", n);
         println!("{}, loss", loss);
         println!("{}, bias", neuron.bias);
         println!("{}, weight", neuron.weight);
-
     }
 
+    // predict something
+    let input = 100.0;
+    let prediction = input * neuron.weight + neuron.bias;
+    println!("prediction: {}", prediction);
 }
